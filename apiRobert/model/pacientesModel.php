@@ -17,7 +17,7 @@ class PacientesModel extends DB{
     public function view($idPaciente){
         $_respuestas=new Respuestas;
         try{        
-            $query = $this->connect()->prepare("SELECT PacienteId,Nombre,DNI,Telefono,Correo FROM pacientes WHERE PacienteId=:PacienteId");
+            $query = $this->connect()->prepare("SELECT PacienteId,DNI,Nombre,Direccion,CodigoPostal,Telefono,Genero,FechaNacimiento,Correo FROM pacientes WHERE PacienteId=:PacienteId");
             $query->bindparam('PacienteId',$idPaciente);
             $query->execute();
             if($query->rowCount()>0){
